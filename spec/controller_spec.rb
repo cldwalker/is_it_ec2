@@ -23,5 +23,13 @@ describe My::Application do
       last_response.status.should == 200
       body.should =~ /NOPE/
     end
+
+    it "returns 404 for invalid ip" do
+      get '/0.0.0'
+
+      last_response.status.should == 404
+      body.should == "Address '0.0.0' does not exist"
+
+    end
   end
 end

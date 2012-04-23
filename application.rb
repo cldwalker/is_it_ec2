@@ -11,7 +11,11 @@ module My
     end
 
     get '/:ip' do
-      @answer = IsItEc2.ask(params[:ip]) ? 'YEP' : 'NOPE'
+      begin
+        @answer = IsItEc2.ask(params[:ip]) ? 'YEP' : 'NOPE'
+      rescue Resolv::ResolvError
+        halt 404, "Address '#{params[:ip]}' does not exist"
+      end
       haml :ip
     end
   end
