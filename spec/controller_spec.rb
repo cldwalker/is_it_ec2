@@ -1,7 +1,26 @@
 require 'spec_helper'
 
 describe My::Application do
+  describe "Home page" do
+    it "GET /" do
+      get '/'
+      last_response.body.should =~ /IP or Hostname/
+    end
+
+    it "does a lookup from homepage", js: true do
+      visit '/'
+      page.should have_content 'IP'
+
+      fill_in 'ip', with: 'google.com'
+      click_on 'Lookup'
+      page.should have_content 'NOPE'
+    end
+  end
+
   describe "GET /:ip" do
+    # override Capybara::DSL#body
+    def body;   last_response.body    end
+
     def stub_ask(arg, ret)
       unless ENV['LIVE']
         IsItEc2.should_receive(:ask).with(arg).and_return(ret)
