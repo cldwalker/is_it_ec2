@@ -1,5 +1,8 @@
-%h1 Is it EC2?
-%p
-  %label IP or Hostname
-  %input{type: 'text', id: 'ip'}
-  %input{type: 'submit', value: 'Lookup', class: 'lookup'}
+%div#main
+  %h1 Is it EC2?
+  %form.form-search.lookup{action: ''}
+    %label IP or Hostname
+    %input{type: 'text', id: 'ip', class: 'search-query'}
+    %button{type: 'submit', class: 'btn-primary'}
+      %i.icon-search
+      Lookup
