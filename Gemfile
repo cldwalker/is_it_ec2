@@ -4,6 +4,7 @@ gem 'sinatra', require: 'sinatra/base'
 gem 'bundler', '~> 1.1'
 gem 'haml'
 gem 'thin'
+gem 'rack-cache', require: 'rack/cache'
 
 group :development do
   gem 'rake'
