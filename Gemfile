@@ -9,6 +9,7 @@ group :development do
   gem 'rake'
   gem 'shotgun'
   gem 'debugger'
+  gem 'tux'
 end
 
 group :test do
