@@ -15,6 +15,13 @@ $ curl http://localhost:9393/google.com -> NOPE
 $ curl http://localhost:9393/heroku.com -> YEP
 ```
 
+## Heroku Setup
+
+```sh
+$ heroku create -s cedar
+# for analytics
+$ heroku config:add GA_CODE=YOUR_CODE
+
 ## Credits
 * @hundredwatt for [the gist](https://gist.github.com/2464999) that kicked this off
 

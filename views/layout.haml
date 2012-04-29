@@ -18,3 +18,6 @@
   %body
     %div= haml :navbar
     = yield
+
+  - if ENV['RACK_ENV'] == 'production'
+    = erb :google_analytics
