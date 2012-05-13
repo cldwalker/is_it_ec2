@@ -6,6 +6,8 @@ require 'is_it_ec2'
 
 module My
   class Application < Sinatra::Base
+    set :haml, format: :html5
+
     if ENV['RACK_CACHE']
       use Rack::Cache do
         set :verbose, true
